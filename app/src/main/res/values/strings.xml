@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MangaZone</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="home_title">Anime List</string>
+</resources>
