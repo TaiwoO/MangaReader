@@ -6,4 +6,5 @@
 
     <string name="action_settings">Settings</string>
     <string name="home_title">Anime List</string>
+    <string name="api_baseUrl">https://www.mangaeden.com/api/</string>
 </resources>
