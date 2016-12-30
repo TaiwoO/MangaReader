@@ -2,7 +2,8 @@ package com.example.picspacehd.mangazone.helper;
 
 public class AppConstants {
 
-    public static final String API_BASE_URL = "https://www.mangaeden.com/api/";
+    public static final String API_BASE_URL     = "https://www.mangaeden.com/api/";
+    public static final String API_IMG_BASE_URL = "https://cdn.mangaeden.com/mangasimg/";
 
     // Meaning of the indexes in the "chapters" array from the API
     //
@@ -15,4 +16,10 @@ public class AppConstants {
     //
     public static final Integer PAGE_NUMBER_INDEX  = 0;
     public static final Integer PAGE_IMGPATH_INDEX = 1;
+
+    // Status of a manga
+    //
+    public static final Integer ONGOING  = 1;
+    public static final Integer FINISHED = 2;
+
 }
