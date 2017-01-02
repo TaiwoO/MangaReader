@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#20283B</color>
     <color name="colorAccent">#0D3D27</color>
 
+    <color name="textColorPrimary">#FFFFFF</color>
+
     <color name="colorStatusOngoing">#4CAF50</color>
     <color name="colorStatusFinished">#F44336</color>
 

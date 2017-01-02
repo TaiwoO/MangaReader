@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.picspacehd.mangazone.R;
 import com.example.picspacehd.mangazone.activity.MainActivity;
+import com.example.picspacehd.mangazone.activity.MangaInfoActivity;
 import com.example.picspacehd.mangazone.helper.AppConstants;
 import com.example.picspacehd.mangazone.model.Manga;
 
@@ -62,11 +63,12 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
         if (isTransparentViewType(viewType)) {
             itemView.setBackgroundResource(android.R.color.transparent);
         }
+
         return new ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         Manga manga = mangas.get(position);
 
         showCover(holder, manga.getImgPath());
@@ -74,6 +76,7 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
         showStatus(holder, manga.getStatus());
         showAlias(holder, manga.getAlias());
         showGeneres(holder, manga.getCategories());
+        setClickListener(holder.itemView, position);
 
     }
 
@@ -124,9 +127,21 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
 
         holder.genres.setText(genres);
     }
+    private void setClickListener(View view, final int position) {
+
+        final Intent intent = new Intent(context, MangaInfoActivity.class);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent.putExtra("manga_id", mangas.get(position).getId());
+                view.getContext().startActivity(intent);
+            }
+        });
+    }
 
     public void filter (String text) {
         mangas.clear();
+
         if(text.isEmpty()) {
             mangas.addAll(mangasCopy);
         } else {

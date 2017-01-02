@@ -1,5 +1,6 @@
 package com.example.picspacehd.mangazone.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ import com.example.picspacehd.mangazone.model.MangaListResponse;
 import com.example.picspacehd.mangazone.rest.ApiClient;
 import com.example.picspacehd.mangazone.rest.ApiInterface;
 
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.layout_connection_failed)  LinearLayout connectionFailedLayout;
     @BindView(R.id.layout_connection_success) RecyclerView connectionSuccessLayout;
     @BindView(R.id.txt_connection_Failed)     TextView connectionFailedBtn;
+    @BindView(R.id.progressBar_mangaList)     ProgressBar connectingProgressbar;
 
     @OnClick(R.id.txt_connection_Failed)
     public void refetchMangas() {
@@ -58,7 +62,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -97,19 +100,24 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void displayDefaultResults() {
+        connectingProgressbar.setVisibility(View.VISIBLE);
         connectionFailedLayout.setVisibility(View.GONE);
         connectionSuccessLayout.setVisibility(View.GONE);
     }
 
     private void displaySuccessResults(List<Manga> mangas) {
+        connectingProgressbar.setVisibility(View.GONE);
         connectionSuccessLayout.setVisibility(View.VISIBLE);
 
+
+        Collections.sort(mangas, Manga.POPULARITY_COMPARATOR);
         mangaListAdapter = new MangaListAdapter(getApplicationContext(), mangas);
         connectionSuccessLayout.setLayoutManager(new LinearLayoutManager(this));
         connectionSuccessLayout.setAdapter(mangaListAdapter);
     }
 
     private void displayFailResults() {
+        connectingProgressbar.setVisibility(View.GONE);
         connectionFailedLayout.setVisibility(View.VISIBLE);
     }
 
@@ -127,8 +135,8 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -139,7 +147,8 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                mangaListAdapter.filter(query);
+               // mangaListAdapter.filter(query);
+                searchView.clearFocus();
                 return true;
             }
         });

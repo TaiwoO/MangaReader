@@ -14,9 +14,13 @@
     <string name="try_again">TRY AGAIN</string>
     <string name="fetch_error_message">Couldn\'t retrieve results</string>
 
-    <string name="layout_item_status">Status:</string>
+
     <string name="layout_item_alias">Alias:</string>
+    <string name="layout_item_created">Created:</string>
     <string name="layout_item_genre">Genres:</string>
+    <string name="layout_item_status">Status:</string>
+    <string name="layout_item_latest">Latest:</string>
+    <string name="layout_item_description">Description:</string>
     <string name="layout_item_status_ongoing">Ongoing</string>
     <string name="layout_item_status_finished">Finished</string>
     <string name="layout_item_status_unknown">Unknown</string>

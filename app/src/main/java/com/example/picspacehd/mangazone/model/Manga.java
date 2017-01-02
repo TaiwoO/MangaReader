@@ -3,6 +3,7 @@ package com.example.picspacehd.mangazone.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Manga {
@@ -23,6 +24,28 @@ public class Manga {
     Integer status;
     @SerializedName("t")
     String title;
+
+    public static final Comparator<Manga> ALPABETICAL_COMPARATOR = new Comparator<Manga>() {
+        @Override
+        public int compare(Manga a, Manga b) {
+            return a.getTitle().compareTo(b.getTitle());
+        }
+    };
+
+    public static final Comparator<Manga> POPULARITY_COMPARATOR = new Comparator<Manga>() {
+        @Override
+        public int compare(Manga a, Manga b) {
+            return b.getHits().compareTo(a.getHits());
+        }
+    };
+
+    // TODO: implement this
+    public static final Comparator<Manga> LAST_CHAPTER_DATE_COMPARATOR = new Comparator<Manga>() {
+        @Override
+        public int compare(Manga a, Manga b) {
+            return 0;
+        }
+    };
 
     // empty constructor needed by the Parceler library
     public Manga () {
@@ -104,4 +127,6 @@ public class Manga {
     public void setTitle(String title) {
         this.title = title;
     }
+
+
 }
