@@ -3,8 +3,10 @@ package com.example.picspacehd.mangazone.activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private List<Manga> mangas;
+    private MangaListAdapter mangaListAdapter;
 
     @BindView(R.id.layout_connection_failed)  LinearLayout connectionFailedLayout;
     @BindView(R.id.layout_connection_success) RecyclerView connectionSuccessLayout;
@@ -59,15 +62,6 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -110,8 +104,9 @@ public class MainActivity extends AppCompatActivity
     private void displaySuccessResults(List<Manga> mangas) {
         connectionSuccessLayout.setVisibility(View.VISIBLE);
 
+        mangaListAdapter = new MangaListAdapter(getApplicationContext(), mangas);
         connectionSuccessLayout.setLayoutManager(new LinearLayoutManager(this));
-        connectionSuccessLayout.setAdapter(new MangaListAdapter(getApplicationContext(), mangas));
+        connectionSuccessLayout.setAdapter(mangaListAdapter);
     }
 
     private void displayFailResults() {
@@ -132,6 +127,23 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mangaListAdapter.filter(newText);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mangaListAdapter.filter(query);
+                return true;
+            }
+        });
+
         return true;
     }
 

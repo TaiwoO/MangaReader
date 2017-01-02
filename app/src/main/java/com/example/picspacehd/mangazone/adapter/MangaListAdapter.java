@@ -20,6 +20,7 @@ import com.example.picspacehd.mangazone.activity.MainActivity;
 import com.example.picspacehd.mangazone.helper.AppConstants;
 import com.example.picspacehd.mangazone.model.Manga;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -31,6 +32,7 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
     private Context context;
     private List<Manga> mangas;
     private Intent intent;
+    private List<Manga> mangasCopy = new ArrayList<Manga>();
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.manga_layout_item_cover)  ImageView cover;
@@ -48,6 +50,7 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
     public MangaListAdapter(Context context, List<Manga> mangas) {
         this.context = context;
         this.mangas  = mangas;
+        this.mangasCopy.addAll(mangas);
     }
 
     @Override
@@ -89,11 +92,9 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
         String coverLink = AppConstants.API_IMG_BASE_URL + imgPath;
         Glide.with(context).load(coverLink).into(holder.cover);
     }
-
     private void showTitle(ViewHolder holder, String title) {
         holder.title.setText(title);
     }
-
     private void showStatus(ViewHolder holder, Integer status) {
 
         if (status.equals(AppConstants.ONGOING)) {
@@ -108,11 +109,9 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
             holder.status.setText(R.string.layout_item_status_unknown);
         }
     }
-
     private void showAlias(ViewHolder holder, String alias) {
         holder.alias.setText(alias);
     }
-
     private void showGeneres(ViewHolder holder, List<String> genreList) {
         String genres = "";
 
@@ -126,13 +125,26 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
         holder.genres.setText(genres);
     }
 
+    public void filter (String text) {
+        mangas.clear();
+        if(text.isEmpty()) {
+            mangas.addAll(mangasCopy);
+        } else {
+            text = text.toLowerCase();
+            for ( Manga manga : mangasCopy) {
+                if (manga.getTitle().toLowerCase().contains(text)) {
+                    mangas.add(manga);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
     private boolean isTransparentViewType(int viewType) {
         return isEven(viewType);
     }
     private boolean isEven(int num) {
         return num % 2 == 0;
     }
-
 
 
 }
