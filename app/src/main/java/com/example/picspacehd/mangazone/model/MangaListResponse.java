@@ -9,7 +9,7 @@ public class MangaListResponse {
     @SerializedName("end")
     private Integer end;
     @SerializedName("manga")
-    private List<Manga> results;
+    private List<Manga> mangas;
     @SerializedName("page")
     private Integer page;
     @SerializedName("start")
@@ -23,12 +23,12 @@ public class MangaListResponse {
         this.end = end;
     }
 
-    public List<Manga> getResults() {
-        return results;
+    public List<Manga> getMangas() {
+        return mangas;
     }
 
-    public void setResults(List<Manga> results) {
-        this.results = results;
+    public void setMangas(List<Manga> mangas) {
+        this.mangas = mangas;
     }
 
     public Integer getPage() {

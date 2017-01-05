@@ -1,9 +1,6 @@
 package com.example.picspacehd.mangazone.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,7 +18,6 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.picspacehd.mangazone.R;
 import com.example.picspacehd.mangazone.adapter.MangaListAdapter;
@@ -79,7 +75,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void fetchMangas() {
+    private void fetchMangas() {
         displayDefaultResults();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
@@ -87,7 +83,7 @@ public class MainActivity extends AppCompatActivity
         call.enqueue(new Callback<MangaListResponse>() {
             @Override
             public void onResponse(Call<MangaListResponse> call, Response<MangaListResponse> response) {
-                mangas = response.body().getResults();
+                mangas = response.body().getMangas();
                 displaySuccessResults(mangas);
             }
 
@@ -142,6 +138,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onQueryTextChange(String newText) {
                 mangaListAdapter.filter(newText);
+
                 return true;
             }
 

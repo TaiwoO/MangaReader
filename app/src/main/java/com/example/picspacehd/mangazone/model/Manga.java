@@ -47,7 +47,6 @@ public class Manga {
         }
     };
 
-    // empty constructor needed by the Parceler library
     public Manga () {
 
     }

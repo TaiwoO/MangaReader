@@ -32,7 +32,6 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
 
     private Context context;
     private List<Manga> mangas;
-    private Intent intent;
     private List<Manga> mangasCopy = new ArrayList<Manga>();
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,7 +67,7 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         Manga manga = mangas.get(position);
 
         showCover(holder, manga.getImgPath());
@@ -134,6 +133,7 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.View
             @Override
             public void onClick(View view) {
                 intent.putExtra("manga_id", mangas.get(position).getId());
+                intent.putExtra("manga_title", mangas.get(position).getTitle());
                 view.getContext().startActivity(intent);
             }
         });

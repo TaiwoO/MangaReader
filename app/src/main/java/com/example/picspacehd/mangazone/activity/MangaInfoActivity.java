@@ -1,6 +1,7 @@
 package com.example.picspacehd.mangazone.activity;
 
 import android.content.Intent;
+import android.os.Parcel;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,12 +19,18 @@ import android.widget.Toast;
 import com.example.picspacehd.mangazone.R;
 import com.example.picspacehd.mangazone.fragment.MangaChaptersFragment;
 import com.example.picspacehd.mangazone.fragment.MangaDetailFragment;
+import com.example.picspacehd.mangazone.model.MangaInfoResponse;
+import com.example.picspacehd.mangazone.rest.ApiClient;
+import com.example.picspacehd.mangazone.rest.ApiInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MangaInfoActivity extends AppCompatActivity {
 
@@ -32,6 +39,9 @@ public class MangaInfoActivity extends AppCompatActivity {
     @BindView(R.id.manga_info_tabs)      TabLayout tabLayout;
 
 
+    private MangaDetailFragment mangaDetailFragment = new MangaDetailFragment();
+    private MangaChaptersFragment mangaChaptersFragment = new MangaChaptersFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,19 +49,46 @@ public class MangaInfoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent i = getIntent();
-        String mangaID = i.getStringExtra("manga_id");
-        Toast.makeText(this, mangaID, Toast.LENGTH_SHORT).show();
+        String mangaId = i.getStringExtra("manga_id");
+        String mangaTitle = i.getStringExtra("manga_title");
 
-        //setSupportActionBar(toolbar);
+        setTitle(mangaTitle);
+
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setUpViewpager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
+
+        fetchMangaInfo(mangaId);
+    }
+
+    private void fetchMangaInfo(String mangaId) {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<MangaInfoResponse> call = apiService.getMangaInfo(mangaId);
+        call.enqueue(new Callback<MangaInfoResponse>() {
+            @Override
+            public void onResponse(Call<MangaInfoResponse> call, Response<MangaInfoResponse> response) {
+                MangaInfoResponse results = response.body();
+                displaySuccessResults(results);
+            }
+
+            @Override
+            public void onFailure(Call<MangaInfoResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void displaySuccessResults(MangaInfoResponse results) {
+
+        //Bundle mangaDetailBundle = new Bundle();
+        mangaDetailFragment.displayResults(results);
+        mangaChaptersFragment.displayResults(results.getChapters());
     }
 
     private void setUpViewpager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new MangaDetailFragment(), "Details");
-        adapter.addFragment(new MangaChaptersFragment(), "Chapters");
+        adapter.addFragment(mangaDetailFragment, "Details");
+        adapter.addFragment(mangaChaptersFragment, "Chapters");
         viewPager.setAdapter(adapter);
     }
 

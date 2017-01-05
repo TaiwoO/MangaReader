@@ -1,5 +1,6 @@
 package com.example.picspacehd.mangazone.rest;
 
+import com.example.picspacehd.mangazone.model.MangaInfoResponse;
 import com.example.picspacehd.mangazone.model.MangaListResponse;
 
 import retrofit2.Call;
@@ -10,5 +11,8 @@ public interface ApiInterface {
 
     @GET("list/0")
     Call<MangaListResponse> getMangas();
+
+    @GET("manga/{id}")
+    Call<MangaInfoResponse> getMangaInfo(@Path("id") String mangaId);
 
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#758DA5"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chapter: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#DAD9D5"
+            tools:text="Chapter: "
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/manga_chapter_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            tools:text="867"
+            android:textColor="#DAD9D5"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/manga_chapter_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="#758DA5"
+        tools:text="10/12/2011" />
+</RelativeLayout>

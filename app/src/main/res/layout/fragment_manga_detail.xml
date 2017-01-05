@@ -16,7 +16,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/manga_info_layout_item_cover"
+            android:id="@+id/manga_info_cover"
             android:layout_width="100dp"
             android:layout_height="137dp"
             android:layout_margin="4dp"
@@ -34,7 +34,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
+                android:padding="1dp"
                 android:text="@string/layout_item_alias"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="#758DA5" />
@@ -42,15 +42,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:text="@string/layout_item_created"
+                android:padding="1dp"
+                android:text="@string/layout_item_chapters"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="#758DA5" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
+                android:padding="1dp"
                 android:text="@string/layout_item_latest"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="#758DA5" />
@@ -58,7 +58,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
+                android:padding="1dp"
                 android:text="@string/layout_item_status"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="#758DA5" />
@@ -66,7 +66,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
+                android:padding="1dp"
                 android:text="@string/layout_item_genre"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="#758DA5" />
@@ -79,47 +79,42 @@
             android:padding="1dp">
 
             <TextView
-                android:id="@+id/manga_info_layout_item_alias"
+                android:id="@+id/manga_info_alias"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:padding="1dp"
                 android:textColor="#DAD9D5"
                 tools:text="random" />
 
             <TextView
-                android:id="@+id/manga_info_layout_item_created"
+                android:id="@+id/manga_info_chapter_length"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
                 android:textColor="#DAD9D5"
-                tools:text="10/22/1999" />
+                tools:text="7" />
 
             <TextView
-                android:id="@+id/manga_info_layout_item_latest"
+                android:id="@+id/manga_info_latest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
                 android:textColor="#DAD9D5"
                 tools:text="10/22/2017" />
 
             <TextView
-                android:id="@+id/manga_info_layout_item_status"
+                android:id="@+id/manga_info_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
                 android:textColor="#DAD9D5"
                 tools:text="Ongoing" />
 
 
             <TextView
-                android:id="@+id/manga_info_layout_item_genres"
+                android:id="@+id/manga_info_genres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="5"
-                android:padding="1dp"
                 android:textColor="#DAD9D5"
                 tools:text="action, drama, thriller, slice of life, crime" />
         </LinearLayout>
@@ -131,6 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="4dp"
         android:layout_margin="4dp">
 
         <TextView
@@ -138,24 +134,32 @@
             android:layout_height="wrap_content"
             android:text="@string/layout_item_description"
             android:textColor="@color/textColorPrimary"/>
-
-        <TextView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#DAD9D5"
-            tools:text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-            />
+            android:padding="4dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/manga_info_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#758DA5"
+                tools:text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                />
+        </ScrollView>
+
     </LinearLayout>
 
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:gravity="center"
-        android:text="Read Chapter One"
-        android:textColor="@color/textColorPrimary"
-        android:background="@color/colorPrimaryDark"
-        android:textStyle="normal|bold" />
+        <!--android:padding="16dp"-->
+        <!--android:gravity="center"-->
+        <!--android:text="Read Chapter One"-->
+        <!--android:textColor="@color/textColorPrimary"-->
+        <!--android:background="@color/colorPrimaryDark"-->
+        <!--android:textStyle="normal|bold"-->
+        <!--android:id="@+id/textView3" />-->
+
 
 </LinearLayout>

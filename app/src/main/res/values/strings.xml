@@ -9,14 +9,14 @@
     <string name="action_search">Search</string>
 
 
-    <string name="home_title">Anime List</string>
+    <string name="home_title">Manga List</string>
 
     <string name="try_again">TRY AGAIN</string>
-    <string name="fetch_error_message">Couldn\'t retrieve results</string>
+    <string name="fetch_error_message">Couldn\'t retrieve mangas</string>
 
 
     <string name="layout_item_alias">Alias:</string>
-    <string name="layout_item_created">Created:</string>
+    <string name="layout_item_chapters">Chapters:</string>
     <string name="layout_item_genre">Genres:</string>
     <string name="layout_item_status">Status:</string>
     <string name="layout_item_latest">Latest:</string>

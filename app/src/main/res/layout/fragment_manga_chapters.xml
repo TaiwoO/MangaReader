@@ -10,12 +10,13 @@
         android:src="@drawable/ic_low_priority_white_24dp"
         android:padding="8dp"
         android:background="@android:color/transparent"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         />
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/manga_info_chapter_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
 
 </LinearLayout>
