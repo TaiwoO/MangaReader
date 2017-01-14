@@ -14,6 +14,8 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.picspacehd.mangazone.R;
@@ -37,7 +39,6 @@ public class MangaInfoActivity extends AppCompatActivity {
     //@BindView(R.id.toolbar)              Toolbar toolbar;
     @BindView(R.id.manga_info_viewpager) ViewPager viewPager;
     @BindView(R.id.manga_info_tabs)      TabLayout tabLayout;
-
 
     private MangaDetailFragment mangaDetailFragment = new MangaDetailFragment();
     private MangaChaptersFragment mangaChaptersFragment = new MangaChaptersFragment();

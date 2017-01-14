@@ -20,7 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MangaInfoActivity"></activity>
+        <activity android:name=".activity.MangaInfoActivity" />
+        <activity
+            android:name=".activity.ChapterImagesActivity"
+            android:theme="@style/AppTheme.NoActionBar2"
+            >
+        </activity>
 
     </application>
 

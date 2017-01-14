@@ -24,7 +24,10 @@
     <string name="layout_item_status_ongoing">Ongoing</string>
     <string name="layout_item_status_finished">Finished</string>
     <string name="layout_item_status_unknown">Unknown</string>
-
+    <string name="prev_ch">Prev.Ch</string>
+    <string name="next_ch">Next.Ch</string>
+    <string name="chapter">Chapter:\u0020</string>
+    <string name="slash">/</string>
 
 
 </resources>

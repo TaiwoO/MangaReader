@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_chapter_images"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context="com.example.picspacehd.mangazone.activity.ChapterImagesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/prev_chapter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_navigate_before_white_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="15sp"
+            android:text="@string/prev_ch" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4">
+
+            <TextView
+                android:id="@+id/chapter_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/chapter"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="17sp"
+                android:textStyle="normal|bold"/>
+
+            <TextView
+                android:id="@+id/current_chapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="22"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="17sp"
+                android:layout_toRightOf="@+id/chapter_TextView"
+                android:layout_toEndOf="@+id/chapter_TextView"
+                android:textStyle="normal|bold"/>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="15sp"
+            android:text="@string/next_ch"
+            android:id="@+id/textView3" />
+
+        <ImageButton
+            android:id="@+id/next_chapter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_navigate_next_white_24dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/prev_page"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_navigate_before_white_24dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+
+            <TextView
+                android:id="@+id/current_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/slash"
+                android:layout_toStartOf="@+id/slash"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                tools:text="5" />
+
+            <TextView
+                android:id="@+id/slash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="19sp"
+                android:textStyle="normal|bold"
+                android:text="@string/slash" />
+
+            <TextView
+                android:id="@+id/total_pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/slash"
+                android:layout_toRightOf="@+id/slash"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp"
+                android:textStyle="normal|bold"
+                tools:text="60" />
+
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/next_page"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_navigate_next_white_24dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

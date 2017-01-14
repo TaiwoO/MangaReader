@@ -4,15 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#758DA5"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
+        android:id="@+id/chapter_list_LinearLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -47,4 +43,9 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textColor="#758DA5"
         tools:text="10/12/2011" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#758DA5"
+        android:layout_below="@+id/chapter_list_LinearLayout"/>
 </RelativeLayout>

@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity
 
     private void fetchMangas() {
         displayDefaultResults();
+
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
         Call<MangaListResponse> call = apiService.getMangas();
