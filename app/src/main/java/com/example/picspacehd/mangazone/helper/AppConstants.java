@@ -14,8 +14,8 @@ public class AppConstants {
 
     // Meaning of the indexes in the "pages" array from the API
     //
-    public static final Integer PAGE_NUMBER_INDEX  = 0;
-    public static final Integer PAGE_IMGPATH_INDEX = 1;
+    public static final Integer PAGE_NUMBER  = 0;
+    public static final Integer PAGE_IMGPATH = 1;
 
     // Status of a manga
     //
