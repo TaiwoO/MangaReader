@@ -8,6 +8,7 @@
     tools:context="com.example.picspacehd.mangazone.activity.ChapterImagesActivity">
 
     <LinearLayout
+        android:id="@+id/chapter_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -26,10 +27,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/prev_ch"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/textColorPrimary"
-            android:textSize="15sp"
-            android:text="@string/prev_ch" />
+            android:textSize="15sp" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -45,31 +46,31 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="17sp"
-                android:textStyle="normal|bold"/>
+                android:textStyle="normal|bold" />
 
             <TextView
                 android:id="@+id/current_chapter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="22"
+                android:layout_toEndOf="@+id/chapter_TextView"
+                android:layout_toRightOf="@+id/chapter_TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="17sp"
-                android:layout_toRightOf="@+id/chapter_TextView"
-                android:layout_toEndOf="@+id/chapter_TextView"
-                android:textStyle="normal|bold"/>
+                android:textStyle="normal|bold"
+                tools:text="22" />
 
 
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/next_ch"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/textColorPrimary"
-            android:textSize="15sp"
-            android:text="@string/next_ch"
-            android:id="@+id/textView3" />
+            android:textSize="15sp" />
 
         <ImageButton
             android:id="@+id/next_chapter"
@@ -79,10 +80,21 @@
             android:background="@android:color/transparent"
             android:src="@drawable/ic_navigate_next_white_24dp" />
 
-
     </LinearLayout>
 
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/image_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/page_navigation"
+        android:layout_below="@+id/chapter_navigation">
+
+    </android.support.v4.view.ViewPager>
+
+
     <LinearLayout
+        android:id="@+id/page_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -121,10 +133,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
+                android:text="@string/slash"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="19sp"
-                android:textStyle="normal|bold"
-                android:text="@string/slash" />
+                android:textStyle="normal|bold" />
 
             <TextView
                 android:id="@+id/total_pages"

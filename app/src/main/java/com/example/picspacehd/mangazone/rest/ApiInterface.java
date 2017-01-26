@@ -1,5 +1,6 @@
 package com.example.picspacehd.mangazone.rest;
 
+import com.example.picspacehd.mangazone.model.MangaChapterResponse;
 import com.example.picspacehd.mangazone.model.MangaInfoResponse;
 import com.example.picspacehd.mangazone.model.MangaListResponse;
 
@@ -14,5 +15,8 @@ public interface ApiInterface {
 
     @GET("manga/{id}")
     Call<MangaInfoResponse> getMangaInfo(@Path("id") String mangaId);
+
+    @GET("chapter/{id}")
+    Call<MangaChapterResponse> getMangaChapterInfo(@Path("id") String chapterId);
 
 }
