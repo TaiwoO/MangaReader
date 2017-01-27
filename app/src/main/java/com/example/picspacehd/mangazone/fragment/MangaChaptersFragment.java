@@ -14,6 +14,8 @@ import android.widget.ListView;
 
 import com.example.picspacehd.mangazone.R;
 import com.example.picspacehd.mangazone.adapter.MangaChapterListAdapter;
+import com.example.picspacehd.mangazone.helper.AppConstants;
+import com.example.picspacehd.mangazone.helper.Container;
 import com.example.picspacehd.mangazone.model.Chapter;
 
 import java.util.Collections;
@@ -59,7 +61,15 @@ public class MangaChaptersFragment extends Fragment {
             public void onClick(View view) {
                 Collections.reverse(chapters);
                 mangaChapterListAdapter.notifyDataSetChanged();
+
+                if (Container.getInstance().getOrderOfChapers() == AppConstants.HIGH_TO_LOW) {
+                    Container.getInstance().setOrderOfChapers(AppConstants.LOW_TO_HIGH);
+                }else{
+                    Container.getInstance().setOrderOfChapers(AppConstants.HIGH_TO_LOW);
+                }
             }
         });
+
+
     }
 }

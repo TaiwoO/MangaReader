@@ -16,21 +16,34 @@
         android:padding="8dp"
         android:weightSum="4">
 
-        <ImageButton
-            android:id="@+id/prev_chapter"
+        <RelativeLayout
+            android:id="@+id/prev_chapter_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_navigate_before_white_24dp" />
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="2dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/prev_ch"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="15sp" />
+            <ImageButton
+                android:id="@+id/prev_chapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_navigate_before_white_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/prev_chapter"
+                android:layout_toRightOf="@+id/prev_chapter"
+                android:text="@string/prev_ch"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -63,22 +76,36 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/next_ch"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="15sp" />
-
-        <ImageButton
-            android:id="@+id/next_chapter"
+        <RelativeLayout
+            android:id="@+id/next_chapter_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_navigate_next_white_24dp" />
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="2dp">
+
+            <TextView
+                android:id="@+id/next_chapter_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_ch"
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/next_chapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/next_chapter_textview"
+                android:layout_toRightOf="@+id/next_chapter_textview"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_navigate_next_white_24dp" />
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 

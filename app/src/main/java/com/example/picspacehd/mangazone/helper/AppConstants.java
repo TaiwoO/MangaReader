@@ -22,6 +22,8 @@ public class AppConstants {
     public static final Integer ONGOING  = 1;
     public static final Integer FINISHED = 2;
 
+    // Order of the chapters
+    //
     public static final Integer HIGH_TO_LOW = 0;
     public static final Integer LOW_TO_HIGH = 1;
 }
