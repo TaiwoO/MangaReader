@@ -130,10 +130,11 @@
         android:weightSum="4">
 
         <ImageButton
-            android:id="@+id/prev_page"
+            android:id="@+id/btn_prev_page"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"
+            android:paddingRight="20dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_navigate_before_white_24dp" />
 
@@ -180,10 +181,12 @@
         </RelativeLayout>
 
         <ImageButton
-            android:id="@+id/next_page"
+            android:id="@+id/btn_next_page"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"
+            android:paddingLeft="20dp"
+            android:paddingStart="20dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_navigate_next_white_24dp" />
 
