@@ -10,17 +10,17 @@
 
         <uk.co.senab.photoview.PhotoView
             android:id="@+id/page_image"
-            android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
 
     </ScrollView>
 
     <!--<ProgressBar-->
-        <!--android:id="@+id/progBar_loadingImage"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:visibility="visible"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center" />-->
+    <!--android:id="@+id/progBar_loadingImage"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:visibility="visible"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center" />-->
 </FrameLayout>

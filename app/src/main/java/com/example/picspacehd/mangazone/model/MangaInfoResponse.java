@@ -26,13 +26,14 @@ public class MangaInfoResponse {
     @SerializedName("chapters")
     private List<List<Object>> chapters;
 
-    public MangaInfoResponse() {}
+    public MangaInfoResponse() {
+    }
 
     public List<Chapter> getChapters() {
 
         List<Chapter> chapterList = new ArrayList<Chapter>();
 
-        for (List<Object> chapterAsObject: chapters) {
+        for (List<Object> chapterAsObject : chapters) {
             Chapter objectAsChapter = Chapter.createInstance(chapterAsObject);
             chapterList.add(objectAsChapter);
         }

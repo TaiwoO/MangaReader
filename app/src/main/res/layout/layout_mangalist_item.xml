@@ -23,12 +23,12 @@
         android:layout_toEndOf="@+id/manga_layout_item_cover"
         android:layout_toRightOf="@+id/manga_layout_item_cover"
         android:ellipsize="end"
-        android:padding="8dp"
         android:maxLines="2"
+        android:padding="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        tools:text="SAMPLE"
+        android:textColor="@android:color/white"
         android:textSize="20sp"
-        android:textColor="@android:color/white" />
+        tools:text="SAMPLE" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -97,9 +97,9 @@
                 android:id="@+id/manga_layout_item_genres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#DAD9D5"
                 android:ellipsize="end"
                 android:maxLines="3"
+                android:textColor="#DAD9D5"
                 tools:text="action, drama, thriller, slice of life, crime" />
         </LinearLayout>
 

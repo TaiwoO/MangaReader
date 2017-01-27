@@ -47,7 +47,7 @@ public class Manga {
         }
     };
 
-    public Manga () {
+    public Manga() {
 
     }
 

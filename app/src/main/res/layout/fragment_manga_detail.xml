@@ -125,41 +125,42 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
         android:orientation="vertical"
-        android:padding="4dp"
-        android:layout_margin="4dp">
+        android:padding="4dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/layout_item_description"
-            android:textColor="@color/textColorPrimary"/>
+            android:textColor="@color/textColorPrimary" />
+
         <ScrollView
             android:layout_width="match_parent"
-            android:padding="4dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="4dp">
+
             <TextView
                 android:id="@+id/manga_info_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#758DA5"
-                tools:text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                />
+                tools:text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
         </ScrollView>
 
     </LinearLayout>
 
     <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
 
-        <!--android:padding="16dp"-->
-        <!--android:gravity="center"-->
-        <!--android:text="Read Chapter One"-->
-        <!--android:textColor="@color/textColorPrimary"-->
-        <!--android:background="@color/colorPrimaryDark"-->
-        <!--android:textStyle="normal|bold"-->
-        <!--android:id="@+id/textView3" />-->
+    <!--android:padding="16dp"-->
+    <!--android:gravity="center"-->
+    <!--android:text="Read Chapter One"-->
+    <!--android:textColor="@color/textColorPrimary"-->
+    <!--android:background="@color/colorPrimaryDark"-->
+    <!--android:textStyle="normal|bold"-->
+    <!--android:id="@+id/textView3" />-->
 
 
 </LinearLayout>

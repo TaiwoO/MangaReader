@@ -36,9 +36,8 @@ import retrofit2.Response;
 
 public class MangaInfoActivity extends AppCompatActivity {
 
-    //@BindView(R.id.toolbar)              Toolbar toolbar;
     @BindView(R.id.manga_info_viewpager) ViewPager viewPager;
-    @BindView(R.id.manga_info_tabs)      TabLayout tabLayout;
+    @BindView(R.id.manga_info_tabs) TabLayout tabLayout;
 
     private MangaDetailFragment mangaDetailFragment = new MangaDetailFragment();
     private MangaChaptersFragment mangaChaptersFragment = new MangaChaptersFragment();
@@ -81,7 +80,6 @@ public class MangaInfoActivity extends AppCompatActivity {
 
     private void displaySuccessResults(MangaInfoResponse results) {
 
-        //Bundle mangaDetailBundle = new Bundle();
         mangaDetailFragment.displayResults(results);
         mangaChaptersFragment.displayResults(results.getChapters());
     }
@@ -99,7 +97,6 @@ public class MangaInfoActivity extends AppCompatActivity {
 
         public ViewPagerAdapter(FragmentManager manager) {
             super(manager);
-
         }
 
         @Override
@@ -112,7 +109,7 @@ public class MangaInfoActivity extends AppCompatActivity {
             return mFragmentList.size();
         }
 
-        public void addFragment( Fragment fragment, String title) {
+        public void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
@@ -122,5 +119,4 @@ public class MangaInfoActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
-
 }

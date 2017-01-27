@@ -18,6 +18,7 @@ import com.example.picspacehd.mangazone.model.Page;
 import com.example.picspacehd.mangazone.rest.ApiClient;
 import com.example.picspacehd.mangazone.rest.ApiInterface;
 
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -60,6 +61,7 @@ public class ChapterImagesActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MangaChapterResponse> call, Response<MangaChapterResponse> response) {
                 List<Page> pages = response.body().getPages();
+                Collections.reverse(pages);
                 displaySuccessResults(pages);
             }
 
@@ -77,10 +79,6 @@ public class ChapterImagesActivity extends AppCompatActivity {
     private void displaySuccessResults(List<Page> pages) {
         showTotalNumPages(pages.size());
         showCurrentPageNum(1);
-//        setupPrevChapterBtn();
-//        setupNextChapterBtn();
-//        setupPrevPageBtn();
-//        setupNextPageBtn();
 
         imagesViewPager.setAdapter(new MangaImagesAdapter(this, pages));
         imagesViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

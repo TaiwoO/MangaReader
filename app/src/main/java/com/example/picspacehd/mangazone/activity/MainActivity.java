@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         fetchMangas();
-
     }
 
     private void fetchMangas() {
@@ -106,7 +105,6 @@ public class MainActivity extends AppCompatActivity
         connectingProgressbar.setVisibility(View.GONE);
         connectionSuccessLayout.setVisibility(View.VISIBLE);
 
-
         Collections.sort(mangas, Manga.POPULARITY_COMPARATOR);
         mangaListAdapter = new MangaListAdapter(getApplicationContext(), mangas);
         connectionSuccessLayout.setLayoutManager(new LinearLayoutManager(this));
@@ -139,7 +137,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onQueryTextChange(String newText) {
                 mangaListAdapter.filter(newText);
-
                 return true;
             }
 
@@ -167,7 +164,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.action_refresh) {
             fetchMangas();
         }
-
 
         return super.onOptionsItemSelected(item);
     }

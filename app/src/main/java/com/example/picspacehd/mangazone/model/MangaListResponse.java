@@ -17,7 +17,9 @@ public class MangaListResponse {
     @SerializedName("total")
     private Integer total;
 
-    public Integer getEnd() {return end;}
+    public Integer getEnd() {
+        return end;
+    }
 
     public void setEnd(Integer end) {
         this.end = end;
