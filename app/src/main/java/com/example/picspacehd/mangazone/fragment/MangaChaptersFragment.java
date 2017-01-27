@@ -15,7 +15,6 @@ import android.widget.ListView;
 import com.example.picspacehd.mangazone.R;
 import com.example.picspacehd.mangazone.adapter.MangaChapterListAdapter;
 import com.example.picspacehd.mangazone.helper.AppConstants;
-import com.example.picspacehd.mangazone.helper.Container;
 import com.example.picspacehd.mangazone.model.Chapter;
 
 import java.util.Collections;
@@ -30,8 +29,10 @@ public class MangaChaptersFragment extends Fragment {
     @BindView(R.id.manga_info_chapter_reorder) ImageButton chapterReorderBtn;
     private MangaChapterListAdapter mangaChapterListAdapter;
 
-    public MangaChaptersFragment() {
+    private int datasetOrder;
 
+    public MangaChaptersFragment() {
+        datasetOrder =  AppConstants.HIGH_TO_LOW;
     }
 
     @Override
@@ -62,10 +63,12 @@ public class MangaChaptersFragment extends Fragment {
                 Collections.reverse(chapters);
                 mangaChapterListAdapter.notifyDataSetChanged();
 
-                if (Container.getInstance().getOrderOfChapers() == AppConstants.HIGH_TO_LOW) {
-                    Container.getInstance().setOrderOfChapers(AppConstants.LOW_TO_HIGH);
+                if (datasetOrder == AppConstants.HIGH_TO_LOW) {
+                    datasetOrder = AppConstants.LOW_TO_HIGH;
+                    mangaChapterListAdapter.setDatasetOrder(datasetOrder);
                 }else{
-                    Container.getInstance().setOrderOfChapers(AppConstants.HIGH_TO_LOW);
+                    datasetOrder = AppConstants.HIGH_TO_LOW;
+                    mangaChapterListAdapter.setDatasetOrder(datasetOrder);
                 }
             }
         });

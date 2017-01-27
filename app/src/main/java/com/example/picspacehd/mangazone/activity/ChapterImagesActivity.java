@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.example.picspacehd.mangazone.R;
 import com.example.picspacehd.mangazone.adapter.MangaImagesAdapter;
 import com.example.picspacehd.mangazone.helper.AppConstants;
-import com.example.picspacehd.mangazone.helper.Container;
 import com.example.picspacehd.mangazone.model.Chapter;
 import com.example.picspacehd.mangazone.model.MangaChapterResponse;
 import com.example.picspacehd.mangazone.model.Page;
@@ -38,7 +37,6 @@ public class ChapterImagesActivity extends AppCompatActivity {
     @BindView(R.id.total_pages)     TextView totalPages;
     @BindView(R.id.image_viewpager) ViewPager imagesViewPager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +47,7 @@ public class ChapterImagesActivity extends AppCompatActivity {
         currentChapter = getIntent().getIntExtra("starting_chapter", 0);
         showCurrentChapter(currentChapter);
 
+        setupButtons();
         fetchChapterPages(getChapterId(currentChapter));
 
     }
@@ -78,10 +77,10 @@ public class ChapterImagesActivity extends AppCompatActivity {
     private void displaySuccessResults(List<Page> pages) {
         showTotalNumPages(pages.size());
         showCurrentPageNum(1);
-        setupPrevChapterBtn();
-        setupNextChapterBtn();
-        setupPrevPageBtn();
-        setupNextPageBtn();
+//        setupPrevChapterBtn();
+//        setupNextChapterBtn();
+//        setupPrevPageBtn();
+//        setupNextPageBtn();
 
         imagesViewPager.setAdapter(new MangaImagesAdapter(this, pages));
         imagesViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -172,6 +171,13 @@ public class ChapterImagesActivity extends AppCompatActivity {
         });
     }
 
+    private void setupButtons() {
+        setupPrevChapterBtn();
+        setupNextChapterBtn();
+        setupPrevPageBtn();
+        setupNextPageBtn();
+    }
+
     private int getLastChapterIndex() {
         if (chapters != null) {
             return chapters.size() - 1;
@@ -185,7 +191,7 @@ public class ChapterImagesActivity extends AppCompatActivity {
     }
 
     private int getChapterOrder() {
-        return Container.getInstance().getOrderOfChapers();
+       return getIntent().getIntExtra("chapter_order", AppConstants.HIGH_TO_LOW);
     }
 
     private String getChapterId(int position) {

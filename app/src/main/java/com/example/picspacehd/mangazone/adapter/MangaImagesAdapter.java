@@ -6,14 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.example.picspacehd.mangazone.R;
 import com.example.picspacehd.mangazone.helper.AppConstants;
 import com.example.picspacehd.mangazone.model.Page;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
 import uk.co.senab.photoview.PhotoView;
 
 public class MangaImagesAdapter extends PagerAdapter {
@@ -25,9 +30,7 @@ public class MangaImagesAdapter extends PagerAdapter {
     public MangaImagesAdapter(Context context, List<Page> pages) {
         this.context = context;
         this.pages = pages;
-
     }
-
 
     @Override
     public int getCount() {
@@ -41,7 +44,6 @@ public class MangaImagesAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-
         Page page = pages.get(position);
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View viewLayout = inflater.inflate(R.layout.layout_mangaimage, container, false);
@@ -63,4 +65,6 @@ public class MangaImagesAdapter extends PagerAdapter {
         Glide.with(context).load(AppConstants.API_IMG_BASE_URL + imgPath)
                 .into(imgDisplay);
     }
+
+
 }

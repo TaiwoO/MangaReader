@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.picspacehd.mangazone.R;
 import com.example.picspacehd.mangazone.activity.ChapterImagesActivity;
+import com.example.picspacehd.mangazone.helper.AppConstants;
 import com.example.picspacehd.mangazone.helper.Util;
 import com.example.picspacehd.mangazone.model.Chapter;
 
@@ -34,6 +35,8 @@ public class MangaChapterListAdapter extends RecyclerView.Adapter<MangaChapterLi
 
     private Context context;
     private List<Chapter> chapters;
+    private int datasetOrder = AppConstants.HIGH_TO_LOW;
+
 
     public MangaChapterListAdapter(Context context, List<Chapter> chapters){
         this.context = context;
@@ -79,11 +82,19 @@ public class MangaChapterListAdapter extends RecyclerView.Adapter<MangaChapterLi
             public void onClick(View view) {
                 intent.putExtra("starting_chapter", position);
                 intent.putParcelableArrayListExtra("chapters", (ArrayList<Chapter>) chapters);
+                intent.putExtra("chapter_order", getDatasetOrder() );
                 view.getContext().startActivity(intent);
             }
         });
     }
 
+    public void setDatasetOrder(int order) {
+        datasetOrder = order;
+    }
+
+    public int getDatasetOrder() {
+        return datasetOrder;
+    }
 }
 
 
