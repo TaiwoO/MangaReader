@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
-    tools:context="com.example.picspacehd.mangazone.activity.ChapterImagesActivity">
+    tools:context="com.example.picspacehd.mangazone.com.picspacehd.picspacehd.mangazone.activity.ChapterImagesActivity">
 
     <LinearLayout
         android:id="@+id/chapter_navigation"

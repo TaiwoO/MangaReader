@@ -6,7 +6,7 @@
     android:background="@android:color/transparent"
     android:orientation="vertical"
     android:paddingTop="@dimen/nav_header_vertical_spacing"
-    tools:context="com.example.picspacehd.mangazone.fragment.MangaDetailFragment">
+    tools:context="com.example.picspacehd.mangazone.com.picspacehd.picspacehd.mangazone.fragment.MangaDetailFragment">
 
 
     <LinearLayout
