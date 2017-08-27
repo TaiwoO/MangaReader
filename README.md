@@ -5,7 +5,7 @@
 
 <h2> ScreenShots </h2>
 
-<img src="https://github.com/TaiwoO/Manga-Reader/blob/master/Screenshots/Phone/img1.png" width="250" height="400">
+<img src="https://github.com/TaiwoO/MangaReader/blob/master/Screenshots/Phone/img1.png?raw=true" width="250" height="400">
 <img src="https://github.com/TaiwoO/Manga-Reader/blob/master/Screenshots/Phone/img2.png" width="250" height="400">
 <img src="https://github.com/TaiwoO/Manga-Reader/blob/master/Screenshots/Phone/img3.png" width="250" height="400">
 <img src="https://github.com/TaiwoO/Manga-Reader/blob/master/Screenshots/Phone/img4.png" width="250" height="400">
